@@ -92,7 +92,7 @@ public extension UIImage {
     /// 生成圆形图片
     func circleImage(with rect: CGRect) -> UIImage
     {
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, screenScale);
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale);
 
         if let context = UIGraphicsGetCurrentContext()
         {
