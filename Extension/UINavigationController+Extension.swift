@@ -11,7 +11,7 @@ import Foundation
 extension UINavigationController
 {
     /// 清除当前 controller 之前的栈
-    func clearBackStack() {
+    public func clearBackStack() {
         if self.viewControllers.count <= 1 { return }
         
         var controllers = self.viewControllers

@@ -14,7 +14,7 @@ fileprivate var leftNameKey: UInt8 = 0
 
 extension UIButton {
     /// 不更改按钮 frame 情况下，扩大点击面积
-    func setEnlargeEdge(top _top: CGFloat, left _left: CGFloat, bottom _bottom: CGFloat, right _right: CGFloat) {
+    public func setEnlargeEdge(top _top: CGFloat, left _left: CGFloat, bottom _bottom: CGFloat, right _right: CGFloat) {
         objc_setAssociatedObject(self, &topNameKey, _top, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC);
         objc_setAssociatedObject(self, &leftNameKey, _left, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC);
         objc_setAssociatedObject(self, &bottomNameKey, _bottom, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC);
@@ -38,16 +38,14 @@ extension UIButton {
                           width: self.bounds.size.width + CGFloat(leftEdge!.floatValue) + CGFloat(rightEdge!.floatValue),
                           height: self.bounds.size.height + CGFloat(topEdge!.floatValue) + CGFloat(bottomEdge!.floatValue));
         }
-        else
-        {
+        else {
             return self.bounds;
         }
     }
     // 判断点击是否在扩大范围内
     open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let rect = enlargedRect()
-        if rect.equalTo(self.bounds)
-        {
+        if rect.equalTo(self.bounds) {
             return super.hitTest(point, with: event)
         }
         return rect.contains(point) ? self : nil;

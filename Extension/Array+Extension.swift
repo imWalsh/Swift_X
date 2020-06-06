@@ -13,8 +13,8 @@ extension Array {
     /// - Parameters:
     ///   - groupClosure: 条件
     ///   - maxCount: 最大数
-    /// - Returns: 分组后的二位数组
-    func groupBy<G: Hashable>(_ groupClosure: (Element) -> G, maxCount: Int = 0) -> [[Element]] {
+    /// - Returns: 分组后的二维数组
+    public func groupBy<G: Hashable>(_ groupClosure: (Element) -> G, maxCount: Int = 0) -> [[Element]] {
         var groups = [[Element]]()
         
         for element in self {
@@ -54,7 +54,7 @@ extension Array {
     }
     
     /// 去重
-    func filterDuplicates<E: Equatable>(_ filter: (Element) -> E) -> [Element] {
+    public func filterDuplicates<E: Equatable>(_ filter: (Element) -> E) -> [Element] {
         var result = [Element]()
         for value in self {
             let key = filter(value)

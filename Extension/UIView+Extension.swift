@@ -16,7 +16,7 @@ private var tapGestureKey: UInt8 = 0
 extension UIView {
     
     //MARK:- property
-    var x: CGFloat {
+    public var x: CGFloat {
         get {
             return self.frame.origin.x
         }
@@ -25,7 +25,7 @@ extension UIView {
         }
     }
     
-    var y : CGFloat {
+    public var y : CGFloat {
         get {
             return self.frame.origin.y
         }
@@ -34,7 +34,7 @@ extension UIView {
         }
     }
     
-    var width: CGFloat {
+    public var width: CGFloat {
         get {
             return self.frame.width
         }
@@ -43,7 +43,7 @@ extension UIView {
         }
     }
     
-    var height: CGFloat {
+    public var height: CGFloat {
         get {
             return self.frame.height
         }
@@ -52,7 +52,7 @@ extension UIView {
         }
     }
     
-    var size: CGSize {
+    public var size: CGSize {
         get {
             return self.frame.size
         }
@@ -61,7 +61,7 @@ extension UIView {
         }
     }
     
-    var centerX: CGFloat {
+    public var centerX: CGFloat {
         get {
             return self.center.x
         }
@@ -70,7 +70,7 @@ extension UIView {
         }
     }
     
-    var centerY: CGFloat {
+    public var centerY: CGFloat {
         get {
             return self.center.y
         }
@@ -79,19 +79,19 @@ extension UIView {
         }
     }
     
-    var maxX: CGFloat {
+    public var maxX: CGFloat {
         get {
             return self.x + self.width
         }
     }
     
-    var maxY: CGFloat {
+    public var maxY: CGFloat {
         get {
             return self.y + self.height
         }
     }
     
-    var tapGesture: tapGestureClosure? {
+    public var tapGesture: tapGestureClosure? {
         get {
            return objc_getAssociatedObject(self, &tapGestureKey) as? tapGestureClosure
         }
@@ -107,7 +107,7 @@ extension UIView {
     ///   - radius: 边框圆角半径
     ///   - width: 边框宽度
     ///   - color: 边框颜色
-    func viewBorderRadius(radius: CGFloat, width: CGFloat = 0, color: UIColor = .clear)
+    public func viewBorderRadius(radius: CGFloat, width: CGFloat = 0, color: UIColor = .clear)
     {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
@@ -119,7 +119,7 @@ extension UIView {
     /// - Parameters:
     ///   - corners:  topLeft, topRight, bottomLeft, bottomRight, allCorners
     ///   - radius: 圆角半径
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+    public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
@@ -127,7 +127,7 @@ extension UIView {
     }
     
     /// 左右震动
-    func shake() {
+    public func shake() {
         let shake = CAKeyframeAnimation(keyPath: "position.x")
         shake.values = [0, -6, 6, -6, 6, 0]
         shake.isAdditive = true
@@ -138,7 +138,7 @@ extension UIView {
     
     /// 截图快照
     /// - Returns: 生成的图片
-    func snapshot() -> UIImage? {
+    public func snapshot() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0)
         defer { UIGraphicsEndImageContext() }
         drawHierarchy(in: bounds, afterScreenUpdates: true)
@@ -147,7 +147,7 @@ extension UIView {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     /// 移除所有子视图
-    func removeAllSubviews() {
+    public func removeAllSubviews() {
         while self.subviews.count > 0 {
             let sub = self.subviews.last
             sub?.removeFromSuperview()
@@ -156,7 +156,7 @@ extension UIView {
     
     /// 添加点击手势
     @discardableResult
-    func addTapGesture(_ callback: @escaping tapGestureClosure) -> UITapGestureRecognizer {
+    public func addTapGesture(_ callback: @escaping tapGestureClosure) -> UITapGestureRecognizer {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleGesture(gestureRecognizer:)))
         self.isUserInteractionEnabled = true
         self.addGestureRecognizer(tap)

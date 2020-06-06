@@ -52,7 +52,7 @@ enum HMACAlgorithm {
 
 extension String {
     
-    func md5() -> String {
+    public func md5() -> String {
         let str = self.cString(using: String.Encoding.utf8)
         let strLen = CUnsignedInt(self.lengthOfBytes(using: String.Encoding.utf8))
         let digestLen = Int(CC_MD5_DIGEST_LENGTH)
@@ -66,7 +66,7 @@ extension String {
         return String(format: hash as String)
     }
     
-    func hmac(algorithm: HMACAlgorithm, key: String) -> String {
+    public func hmac(algorithm: HMACAlgorithm, key: String) -> String {
         let cKey = key.cString(using: String.Encoding.utf8)
         let cData = self.cString(using: String.Encoding.utf8)
         var result = [CUnsignedChar](repeating: 0, count: Int(algorithm.digestLength()))

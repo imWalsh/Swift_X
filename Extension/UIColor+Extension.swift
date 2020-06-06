@@ -9,7 +9,7 @@ import UIKit
 
 extension UIColor {
     /// 随机颜色
-    class var randomColor: UIColor {
+    public class var random: UIColor {
         get {
             let red = CGFloat(arc4random_uniform(255))/CGFloat(255.0)
             let green = CGFloat(arc4random_uniform(255))/CGFloat(255.0)
@@ -20,14 +20,14 @@ extension UIColor {
         }
     }
     /// 16进制
-    convenience init(hex value: Int, alpha: CGFloat = 1.0) {
+    public convenience init(hex value: Int, alpha: CGFloat = 1.0) {
         self.init(red: CGFloat((value & 0xFF0000) >> 16) / 255.0,
                        green: CGFloat((value & 0xFF00) >> 8) / 255.0,
                        blue: CGFloat(value & 0xFF) / 255.0,
                        alpha: alpha)
     }
     
-    convenience init(a: CGFloat = 1.0, r: CGFloat, g: CGFloat, b: CGFloat) {
+    public convenience init(a: CGFloat = 1.0, r: CGFloat, g: CGFloat, b: CGFloat) {
         self.init(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
     }
 }

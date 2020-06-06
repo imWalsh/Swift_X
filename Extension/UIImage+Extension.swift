@@ -13,14 +13,14 @@ import Accelerate
 
 public extension UIImage {
     
-    convenience init?(contentsOfFile name: String, ofType type: String) {
+    public convenience init?(contentsOfFile name: String, ofType type: String) {
         guard let bundlePath = Bundle.main.path(forResource: name, ofType: type) else {
             return nil
         }
         self.init(contentsOfFile: bundlePath)
     }
     /// 根据颜色生成图片
-    convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         color.setFill()
@@ -33,7 +33,7 @@ public extension UIImage {
     }
     
     /// 原图片按尺寸缩放
-    func scale(to size: CGSize, scale: CGFloat = 1) -> UIImage {
+    public func scale(to size: CGSize, scale: CGFloat = 1) -> UIImage {
         
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         
@@ -47,7 +47,7 @@ public extension UIImage {
     }
     
     /// 在给定尺寸内裁剪展示
-    func compressFitSize(targetSize size: CGSize, scale: CGFloat = 1) -> UIImage? {
+    public func compressFitSize(targetSize size: CGSize, scale: CGFloat = 1) -> UIImage? {
         var newImage: UIImage? = nil
         let imageSize = self.size
         let width: CGFloat = imageSize.width
@@ -89,7 +89,7 @@ public extension UIImage {
         return newImage
     }
 
-    func cropped(in rect: CGRect) -> UIImage {
+    public func cropped(in rect: CGRect) -> UIImage {
         func rad(_ degree: Double) -> CGFloat {
             return CGFloat(degree / 180.0 * .pi)
         }
@@ -113,7 +113,7 @@ public extension UIImage {
     }
     
     /// 纠正方向
-    func fixOrientation() -> UIImage {
+    public func fixOrientation() -> UIImage {
         
         if self.imageOrientation == .up {
             return self
@@ -177,7 +177,7 @@ public extension UIImage {
     // MARK:- 图片模糊效果处理
     /// 图片模糊效果处理
     /// - parameter level: 模糊程度（0~1）
-    func blurry(radius: CGFloat) -> UIImage {
+    public func blurry(radius: CGFloat) -> UIImage {
         let context = CIContext(options: nil)
         let currentFilter = CIFilter(name: "CIGaussianBlur")
         let beginImage = CIImage(image: self)

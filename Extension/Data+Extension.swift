@@ -11,7 +11,7 @@ import Foundation
 
 extension Data {
     /// 解析成 json
-    func parseJsonData() -> Any? {
+    public func parseJsonData() -> Any? {
         do {
             let jsonValue = try JSONSerialization.jsonObject(with: self, options: [.mutableLeaves, .mutableContainers])
             return jsonValue
@@ -21,7 +21,7 @@ extension Data {
         }
     }
     /// 转换成 16 进制字符串
-    func hexedString() -> String {
+    public func hexedString() -> String {
         let string = self.map{ String($0, radix:16) }.joined()
         return string
     }

@@ -16,7 +16,7 @@ private struct ImageHeaderData {
 }
 
 extension NSData {
-    func isGif() -> Bool {
+    public func isGif() -> Bool {
         var buffer = [UInt8](repeating: 0, count: 8)
         self.getBytes(&buffer, length: 8)
         /// 判断文件头标识

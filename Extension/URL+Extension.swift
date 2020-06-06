@@ -12,7 +12,7 @@ extension URL {
     /// 找到某个字段下的 value
     /// - Parameter queryParamaterName: 字段名
     /// - Returns: 值
-    func valueOf(_ queryParamaterName: String) -> String? {
+    public func valueOf(_ queryParamaterName: String) -> String? {
         guard let url = URLComponents(string: self.absoluteString) else { return nil }
         return url.queryItems?.first(where: { $0.name == queryParamaterName })?.value
     }
