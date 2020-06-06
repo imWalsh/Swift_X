@@ -89,26 +89,6 @@ public extension UIImage {
         return newImage
     }
 
-    /// 生成圆形图片
-    func circleImage(with rect: CGRect) -> UIImage
-    {
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale);
-
-        if let context = UIGraphicsGetCurrentContext()
-        {
-            context.addRect(rect)
-            context.clip()
-        }
-
-        self.draw(in: rect)
-
-        let circleImg = UIGraphicsGetImageFromCurrentImageContext()
-
-        UIGraphicsEndImageContext()
-
-        return circleImg!
-    }
-    
     func cropped(in rect: CGRect) -> UIImage {
         func rad(_ degree: Double) -> CGFloat {
             return CGFloat(degree / 180.0 * .pi)
