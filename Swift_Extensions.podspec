@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Swift_Extensions"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "A collection of useful Swift Extensions."
 
   # This description is used to generate tags and improve search results.
@@ -94,7 +94,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Extension/*.swift"
+  spec.source_files  = "Swift_Extensions", "Extension/*.swift"
   # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -122,7 +122,7 @@ Pod::Spec.new do |spec|
 
   # spec.framework  = "UIKit"
   spec.ios.frameworks = "Foundation","UIKit","CFNetwork", "Accelerate"
-
+  # spec.ios.static_framework = true
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
 
