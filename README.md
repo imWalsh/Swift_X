@@ -4,7 +4,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/Swift_X.svg?style=flat)](https://cocoapods.org/pods/Swift_X)
 
 ## Requirements
-This library requires `iOS 10.0+` and `Xcode 9.0+`.
+This library requires `iOS 11.0+` and `Swift 4.0+`.
 
 ## Installation
 when you will use the all Extensions:
