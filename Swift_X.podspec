@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Swift_X"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "A collection of useful Swift Extensions."
 
   # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                       This repository provide all kinds of extensions for Swift developer
                    DESC
 
-  spec.homepage     = "https://github.com/imWalsh/Swift_Extensions"
+  spec.homepage     = "https://github.com/imWalsh/Swift_X"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -83,7 +83,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/imWalsh/Swift_Extensions.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/imWalsh/Swift_X.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -94,7 +94,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Swift_Extensions", "Extension/*.swift"
+  spec.source_files  = "Extension/*.swift"
   # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
