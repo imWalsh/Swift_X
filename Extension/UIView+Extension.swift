@@ -9,14 +9,14 @@
 import UIKit
 //import ObjectiveC
 
-typealias tapGestureClosure = (_ gesture: UITapGestureRecognizer) -> Void
+public typealias tapGestureClosure = (_ gesture: UITapGestureRecognizer) -> Void
 
 private var tapGestureKey: UInt8 = 0
 
-extension UIView {
+public extension UIView {
     
     //MARK:- property
-    public var x: CGFloat {
+    var x: CGFloat {
         get {
             return self.frame.origin.x
         }
@@ -25,7 +25,7 @@ extension UIView {
         }
     }
     
-    public var y : CGFloat {
+    var y : CGFloat {
         get {
             return self.frame.origin.y
         }
@@ -34,7 +34,7 @@ extension UIView {
         }
     }
     
-    public var width: CGFloat {
+    var width: CGFloat {
         get {
             return self.frame.width
         }
@@ -43,7 +43,7 @@ extension UIView {
         }
     }
     
-    public var height: CGFloat {
+    var height: CGFloat {
         get {
             return self.frame.height
         }
@@ -52,7 +52,7 @@ extension UIView {
         }
     }
     
-    public var size: CGSize {
+    var size: CGSize {
         get {
             return self.frame.size
         }
@@ -61,7 +61,7 @@ extension UIView {
         }
     }
     
-    public var centerX: CGFloat {
+    var centerX: CGFloat {
         get {
             return self.center.x
         }
@@ -70,7 +70,7 @@ extension UIView {
         }
     }
     
-    public var centerY: CGFloat {
+    var centerY: CGFloat {
         get {
             return self.center.y
         }
@@ -79,19 +79,19 @@ extension UIView {
         }
     }
     
-    public var maxX: CGFloat {
+    var maxX: CGFloat {
         get {
             return self.x + self.width
         }
     }
     
-    public var maxY: CGFloat {
+    var maxY: CGFloat {
         get {
             return self.y + self.height
         }
     }
     
-    public var tapGesture: tapGestureClosure? {
+    var tapGesture: tapGestureClosure? {
         get {
            return objc_getAssociatedObject(self, &tapGestureKey) as? tapGestureClosure
         }
@@ -107,7 +107,7 @@ extension UIView {
     ///   - radius: 边框圆角半径
     ///   - width: 边框宽度
     ///   - color: 边框颜色
-    public func viewBorderRadius(radius: CGFloat, width: CGFloat = 0, color: UIColor = .clear)
+    func viewBorderRadius(radius: CGFloat, width: CGFloat = 0, color: UIColor = .clear)
     {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
@@ -119,7 +119,7 @@ extension UIView {
     /// - Parameters:
     ///   - corners:  topLeft, topRight, bottomLeft, bottomRight, allCorners
     ///   - radius: 圆角半径
-    public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
@@ -127,7 +127,7 @@ extension UIView {
     }
     
     /// 左右震动
-    public func shake() {
+    func shake() {
         let shake = CAKeyframeAnimation(keyPath: "position.x")
         shake.values = [0, -6, 6, -6, 6, 0]
         shake.isAdditive = true
@@ -138,7 +138,7 @@ extension UIView {
     
     /// 截图快照
     /// - Returns: 生成的图片
-    public func snapshot() -> UIImage? {
+    func snapshot() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0)
         defer { UIGraphicsEndImageContext() }
         drawHierarchy(in: bounds, afterScreenUpdates: true)
@@ -147,7 +147,7 @@ extension UIView {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     /// 移除所有子视图
-    public func removeAllSubviews() {
+    func removeAllSubviews() {
         while self.subviews.count > 0 {
             let sub = self.subviews.last
             sub?.removeFromSuperview()
@@ -156,7 +156,7 @@ extension UIView {
     
     /// 添加点击手势
     @discardableResult
-    public func addTapGesture(_ callback: @escaping tapGestureClosure) -> UITapGestureRecognizer {
+    func addTapGesture(_ callback: @escaping tapGestureClosure) -> UITapGestureRecognizer {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleGesture(gestureRecognizer:)))
         self.isUserInteractionEnabled = true
         self.addGestureRecognizer(tap)

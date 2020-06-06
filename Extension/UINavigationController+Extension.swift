@@ -6,12 +6,12 @@
 //  Copyright © 2018年 Walsh. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-extension UINavigationController
+public extension UINavigationController
 {
     /// 清除当前 controller 之前的栈
-    public func clearBackStack() {
+    func clearBackStack() {
         if self.viewControllers.count <= 1 { return }
         
         var controllers = self.viewControllers
