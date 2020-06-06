@@ -14,7 +14,7 @@ when you will use the all Extensions:
     
 ### Manually
 
-Copy Swift_X or some specific class file to your project
+Copy Swift_X or some specific file to your project
 
 ## Content
 ### Foundation
